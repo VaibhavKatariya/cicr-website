@@ -12,19 +12,22 @@ const page = () => {
   return (
     <div className="min-h-screen bg-bg-dark text-ctext overflow-x-hidden break-words">
       {/* Header */}
-      <header className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 dark:border-neutral-800">
+      <header className="flex items-center justify-between p-4 border-b border-gray-800 dark:border-neutral-800">
         <div className="flex items-center space-x-4">
-          <div className="w-12 h-12 bg-black dark:bg-white rounded-lg flex items-center justify-center">
-            <span className="text-2xl font-bold text-white dark:text-black">
-              C
-            </span>
-          </div>
-          <div>
-            <h1 className="font-bold text-lg dark:text-white">CICR</h1>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              The Robotics Society JIIT 128
-            </p>
-          </div>
+          <Image
+            src="/CICRfLOGO.PNG"
+            alt="CICR Starter Kit"
+            width={100}
+            height={100}
+            className="rounded-lg hidden dark:block"
+          />
+          <Image
+            src="/CICRfLOGO_WHITE.PNG"
+            alt="CICR Starter Kit"
+            width={100}
+            height={100}
+            className="rounded-lg block dark:hidden"
+          />
         </div>
 
         <div className="flex items-center space-x-4 ">
@@ -74,7 +77,7 @@ const page = () => {
           </div>
         </section>
 
-        <hr />
+        <hr className="border-t dark:border-gray-200 border-gray-800 my-8" />
 
         {/* About us */}
         <section className="py-6" id="about">
@@ -105,24 +108,33 @@ const page = () => {
           </div>
         </section>
 
-        <hr />
+        <hr className="border-t dark:border-gray-200 border-gray-800 my-8" />
 
         {/* Our Community */}
         <section className="py-6" id="community">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-center">
-            <div className="container mx-auto px-4 flex flex-col items-center">
-              <h2 className="text-3xl font-bold mb-4 text-yellow-600">
+            <div className="container mx-auto px-4">
+              <h2 className="text-3xl font-bold mb-4 text-yellow-600 text-center">
                 Our Community
               </h2>
-              <p className="text-lg leading-relaxed">
-                At the heart of CICR is a diverse group of students who bring
-                their unique skills and energy to the table. Our community
-                thrives on collaboration, each member contributes not just
-                ideas, but a spirit of curiosity and drive that keeps the club
-                active, inclusive, and inspiring. We support and uplift each
-                other to turn ideas into impact.
-              </p>
+              <div className="flex flex-col items-start">
+                <p className="text-lg leading-relaxed mb-4">
+                  At the heart of CICR is a diverse group of students who bring
+                  their unique skills and energy to the table. Our community
+                  thrives on collaboration, each member contributes not just
+                  ideas, but a spirit of curiosity and drive that keeps the club
+                  active, inclusive, and inspiring. We support and uplift each
+                  other to turn ideas into impact.
+                </p>
+                <Link href={whatsappLink} target="_blank" className="py-4">
+                  <Button variant="ghost" size="lg">
+                    View Team
+                    <ArrowRight className="ml-2" />
+                  </Button>
+                </Link>
+              </div>
             </div>
+
             <div className="relative">
               <Image
                 src="/Tests/img50.webp"
@@ -135,7 +147,7 @@ const page = () => {
           </div>
         </section>
 
-        <hr />
+        <hr className="border-t dark:border-gray-200 border-gray-800 my-8" />
 
         {/* What Makes Us Unique */}
         <section className="py-6" id="unique">
@@ -166,7 +178,7 @@ const page = () => {
           </div>
         </section>
 
-        <hr />
+        <hr className="border-t dark:border-gray-200 border-gray-800 my-8" />
 
         <section className="py-16" id="mission">
           {/* Grid container */}
@@ -203,7 +215,7 @@ const page = () => {
           </div>
         </section>
 
-        <hr />
+        <hr className="border-t dark:border-gray-200 border-gray-800 my-8" />
 
         {/* Get in Touch */}
         <section className="py-6" id="contact">
@@ -275,17 +287,25 @@ const page = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-800 py-12 ">
+      <footer className="border-t border-gray-800 dark:border-gray-200 py-12 ">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-black dark:bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-white dark:text-black font-bold">
-                    C
-                  </span>
-                </div>
-                <span className="font-bold text-lg dark:text-white">CICR</span>
+              <div className="flex items-center space-x-4">
+                <Image
+                  src="/CICRfLOGO.PNG"
+                  alt="CICR Starter Kit"
+                  width={100}
+                  height={100}
+                  className="rounded-lg hidden dark:block"
+                />
+                <Image
+                  src="/CICRfLOGO_WHITE.PNG"
+                  alt="CICR Starter Kit"
+                  width={100}
+                  height={100}
+                  className="rounded-lg block dark:hidden"
+                />
               </div>
               <p className="text-gray-600 dark:text-gray-400">
                 Shaping the future of robotics
@@ -411,7 +431,7 @@ const page = () => {
             </div>
           </div>
 
-          <div className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 flex justify-between items-center flex-col md:flex-row">
+          <div className="border-t dark:border-gray-200 border-gray-800 mt-8 pt-8 flex justify-between items-center flex-col md:flex-row">
             <p className="text-gray-600 dark:text-gray-400">
               &copy; {new Date().getFullYear()} CICR - The Robotics Society JIIT
               128. All rights reserved.
