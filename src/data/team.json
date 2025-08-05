@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "firstName": "Anshit",
+    "lastName": "Gupta",
+    "role": "President",
+    "image": "/tests/person.webp",
+    "social": {
+      "website": "https://anshit.dev",
+      "linkedin": "https://www.linkedin.com/in/anshit-gupta-ag101218",
+      "github": "https://github.com/anshit",
+      "instagram": "https://instagram.com/anshit"
+    }
+  },
+  {
+    "id": 2,
+    "firstName": "John",
+    "lastName": "Doe",
+    "role": "Vice President",
+    "image": "/tests/person.webp",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/johndoe",
+      "github": "https://github.com/johndoe"
+    }
+  },
+  {
+    "id": 3,
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "role": "Tech Lead",
+    "image": "/tests/person.webp",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/janesmith",
+      "website": "https://janesmith.dev"
+    }
+  },
+  {
+    "id": 4,
+    "firstName": "Alice",
+    "lastName": "Johnson",
+    "role": "Design Lead",
+    "image": "/tests/person.webp",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/alicejohnson",
+      "website": "https://alicejohnson.dev"
+    }
+  }
+]
