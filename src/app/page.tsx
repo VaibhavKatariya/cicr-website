@@ -1,103 +1,432 @@
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-export default function Home() {
+const whatsappLink =
+  "https://chat.whatsapp.com/GZNiuEOZYYPGOUZQUV1JVa?mode=r_c";
+
+const page = () => {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-bg-dark text-ctext overflow-x-hidden break-words">
+      {/* Header */}
+      <header className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800 dark:border-neutral-800">
+        <div className="flex items-center space-x-4">
+          <div className="w-12 h-12 bg-black dark:bg-white rounded-lg flex items-center justify-center">
+            <span className="text-2xl font-bold text-white dark:text-black">
+              C
+            </span>
+          </div>
+          <div>
+            <h1 className="font-bold text-lg dark:text-white">CICR</h1>
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              The Robotics Society JIIT 128
+            </p>
+          </div>
         </div>
+
+        <div className="flex items-center space-x-4 ">
+          <Button variant="ghost">
+            Login <ArrowRight></ArrowRight>{" "}
+          </Button>
+          <Button variant="outline">order now</Button>
+        </div>
+      </header>
+
+      {/* Hero section */}
+      <main className="px-4">
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-6">
+                <div className="flex flex-row items-center space-x-2">
+                  <h2 className="text-2xl font-bold">CICR:</h2>
+                  <h3 className="text-md text-ctext-muted font-semibold">
+                    The Robotics Society JIIT 128
+                  </h3>
+                </div>
+                <p className="text-xl text-ctext-muted mb-8 leading-relaxed dark:text-gray-300 md:max-w-full max-w-2xs">
+                  Leading the way in robotics research and development with
+                  cutting-edge technology and innovative solutions.
+                </p>
+                <div className="flex items-center space-x-4">
+                  <Button size="lg">Order Your Kit</Button>
+                  <Link href={whatsappLink} target="_blank">
+                    <Button variant="outline" size="lg">
+                      Join the Community
+                      <ArrowRight />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+              <div className="relative">
+                <Image
+                  src="/Tests/img50.webp"
+                  alt="CICR Starter Kit"
+                  width={600}
+                  height={500}
+                  className="rounded-lg shadow-2xl"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        {/* About us */}
+        <section className="py-6" id="about">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-center">
+            <div className="relative">
+              <Image
+                src="/Tests/img50.webp"
+                alt="CICR Starter Kit"
+                width={600}
+                height={500}
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+            <div className="container mx-auto px-4 flex flex-col items-center">
+              <h2 className="text-3xl font-bold mb-4 text-yellow-600">
+                About Us
+              </h2>
+              <p className="text-lg leading-relaxed">
+                CICR: The Robotics Society of JIIT 128, is a passionate
+                community of innovators, engineers, and creators driven by a
+                shared love for robotics and automation. Founded to bring
+                real-world problem solving into classrooms and beyond, we
+                believe in learning by building. From simple mechanisms to
+                complex autonomous systems, CICR offers a platform for students
+                to explore, experiment, and excel in the field of robotics.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        {/* Our Community */}
+        <section className="py-6" id="community">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-center">
+            <div className="container mx-auto px-4 flex flex-col items-center">
+              <h2 className="text-3xl font-bold mb-4 text-yellow-600">
+                Our Community
+              </h2>
+              <p className="text-lg leading-relaxed">
+                At the heart of CICR is a diverse group of students who bring
+                their unique skills and energy to the table. Our community
+                thrives on collaboration, each member contributes not just
+                ideas, but a spirit of curiosity and drive that keeps the club
+                active, inclusive, and inspiring. We support and uplift each
+                other to turn ideas into impact.
+              </p>
+            </div>
+            <div className="relative">
+              <Image
+                src="/Tests/img50.webp"
+                alt="CICR Starter Kit"
+                width={600}
+                height={500}
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        {/* What Makes Us Unique */}
+        <section className="py-6" id="unique">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 items-center">
+            <div className="relative">
+              <Image
+                src="/Tests/img50.webp"
+                alt="CICR Starter Kit"
+                width={600}
+                height={500}
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+            <div className="container mx-auto px-4 flex flex-col items-center">
+              <h2 className="text-3xl font-bold mb-4 text-yellow-600">
+                What Makes Us Unique
+              </h2>
+              <p className="text-lg leading-relaxed">
+                What sets CICR apart is our hands-on approach and cross-domain
+                mindset. We're not just coders or builders, we're storytellers,
+                designers, researchers, and leaders. Our projects often blend
+                hardware with software, creativity with logic, and passion with
+                precision. Beyond technical skills, we emphasize real-world
+                teamwork, project ownership, and mentorship, ensuring that each
+                member leaves with both knowledge and confidence.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        <section className="py-16" id="mission">
+          {/* Grid container */}
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+            {/* card 1 */}
+            <div className="bg-bg rounded-lg p-6 shadow-md">
+              <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
+              <p className="text-ctext-muted">
+                To inspire and nurture the next generation of robotics
+                innovators.
+              </p>
+              <Button className="bg-bg-light text-ctext mt-4 hover:bg-bg-light/60">
+                Learn More
+              </Button>
+            </div>
+
+            {/* card 2 */}
+            <div className="bg-bg rounded-lg p-6 shadow-md">
+              <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
+              <p className="text-ctext-muted">
+                To inspire and nurture the next generation of robotics
+                innovators.
+              </p>
+            </div>
+
+            {/* card 3 */}
+            <div className="bg-bg rounded-lg p-6 shadow-md">
+              <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
+              <p className="text-ctext-muted">
+                To inspire and nurture the next generation of robotics
+                innovators.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <hr />
+
+        {/* Get in Touch */}
+        <section className="py-6" id="contact">
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            {/* Left: Google Map */}
+            <div className="w-full h-96 rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                title="CICR Location"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1752.8435297986844!2d77.36470699446163!3d28.519061588763527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1754411033963!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                allowFullScreen={true}
+                loading="lazy"
+                className="border-0 w-full h-full"
+              ></iframe>
+            </div>
+
+            {/* Right: Contact Form */}
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-yellow-600">
+                Get in Touch
+              </h2>
+              <form className="space-y-4">
+                <div>
+                  <label className="block mb-1 font-medium">Name</label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-2 bg-bg-light border border-gray-300 dark:border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div>
+                  <label className="block mb-1 font-medium">Email</label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-2 bg-bg-light border border-gray-300 dark:border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block mb-1 font-medium">Message</label>
+                  <textarea
+                    rows={5}
+                    className="w-full px-4 py-2 bg-bg-light border border-gray-300 dark:border-gray-700 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-yellow-600"
+                    placeholder="Write your message here..."
+                  ></textarea>
+                </div>
+                <Button
+                  type="submit"
+                  className="bg-yellow-600 hover:bg-yellow-700 text-white"
+                >
+                  Send Message
+                </Button>
+              </form>
+
+              {/* Contact Email */}
+              <p className="mt-6 text-ctext-muted">
+                Or email us directly at{" "}
+                <a
+                  href="mailto:contact@cicr.in"
+                  className="text-yellow-500 underline"
+                >
+                  contact@cicr.in
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 dark:border-gray-800 py-12 ">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center space-x-3 mb-4">
+                <div className="w-10 h-10 bg-black dark:bg-white rounded-lg flex items-center justify-center">
+                  <span className="text-white dark:text-black font-bold">
+                    C
+                  </span>
+                </div>
+                <span className="font-bold text-lg dark:text-white">CICR</span>
+              </div>
+              <p className="text-gray-600 dark:text-gray-400">
+                Shaping the future of robotics
+              </p>
+            </div>
+
+            <div>
+              <h5 className="font-semibold mb-4 dark:text-white">
+                Quick Links
+              </h5>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                <li>
+                  <a
+                    href="#about"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    Events
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 className="font-semibold mb-4 dark:text-white">Support</h5>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    Shipping
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    Returns
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    Help
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h5 className="font-semibold mb-4 dark:text-white">Connect</h5>
+              <ul className="space-y-2 text-gray-600 dark:text-gray-400">
+                <li>
+                  <Link
+                    href="https://www.instagram.com/cicr_jiit"
+                    target="_blank"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    Instagram
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.linkedin.com/company/cicrjiit128/"
+                    target="_blank"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    LinkedIn
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    GitHub
+                  </a>
+                </li>
+                {/* <li>
+                  <a
+                    href="#"
+                    className="hover:text-black dark:hover:text-white"
+                  >
+                    Discord
+                  </a>
+                </li> */}
+              </ul>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-200 dark:border-gray-800 mt-8 pt-8 flex justify-between items-center flex-col md:flex-row">
+            <p className="text-gray-600 dark:text-gray-400">
+              &copy; {new Date().getFullYear()} CICR - The Robotics Society JIIT
+              128. All rights reserved.
+            </p>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-600 dark:text-gray-400">
+                Theme:
+              </span>
+              <ThemeToggle />
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );
-}
+};
+
+export default page;
