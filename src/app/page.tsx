@@ -312,7 +312,7 @@ const page = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="#contact"
                     className="hover:text-black dark:hover:text-white"
                   >
                     Contact
@@ -381,12 +381,13 @@ const page = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="https://github.com/CICR-The-Robotics-Hub-of-JIIT-128"
+                    target="_blank"
                     className="hover:text-black dark:hover:text-white"
                   >
                     GitHub
-                  </a>
+                  </Link>
                 </li>
                 {/* <li>
                   <a
