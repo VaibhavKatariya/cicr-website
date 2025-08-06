@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import TeamSection from "@/components/TeamSection"
+import LoginButton from "@/components/LoginButton";
 
 
 const whatsappLink =
@@ -33,9 +34,7 @@ const page = () => {
         </div>
 
         <div className="flex items-center space-x-4 ">
-          <Button variant="ghost">
-            Login <ArrowRight></ArrowRight>{" "}
-          </Button>
+          <LoginButton/>
           <Button variant="outline">order now</Button>
         </div>
       </header>
