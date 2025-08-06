@@ -1,5 +1,6 @@
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ChevronsUpDown, LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -19,6 +20,12 @@ import { auth } from "@/lib/firebase";
 export function NavUser() {
   const { isMobile } = useSidebar();
   const [user] = useAuthState(auth);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    auth.signOut();
+    router.push("/");
+  };
 
   return (
     <SidebarMenu>
@@ -55,7 +62,7 @@ export function NavUser() {
           >
             <DropdownMenuItem
               className="cursor-pointer"
-              onClick={() => auth.signOut()}
+              onClick={() => handleLogout()}
             >
               <LogOut />
               <div>Log out</div>

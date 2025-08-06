@@ -18,8 +18,8 @@ export default function DashboardPage() {
 
   if (loading || checkingAuth) return <p>Loading...</p>;
 
-  let userEmail = user?.email || "Not available";
-  let enroll = userEmail.split("@")[0] || "Not available";
+  const userEmail = user?.email || "Not available";
+  const enroll = userEmail.split("@")[0] || "Not available";
 
 
   return (

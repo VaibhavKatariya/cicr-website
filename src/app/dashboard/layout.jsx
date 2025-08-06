@@ -32,7 +32,7 @@ export default function DashboardLayout({ children }) {
     );
   }
 
-  if (!user) return null;
+  if (!user) return (<div className="flex items-center justify-center w-full h-screen bg-bg-dark text-ctext">You must be logged in to access this page.</div>);
 
   if (isMaintenanceMode) {
     return (
