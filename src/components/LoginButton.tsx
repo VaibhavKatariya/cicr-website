@@ -1,19 +1,22 @@
 "use client";
 
+import { useAuth } from "@/context/AuthContext"; // update path if needed
 import { auth } from "@/lib/firebase";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { deleteUser, signOut } from "firebase/auth";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const LoginButton = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const router = useRouter();
+  const { user, loading, checkingAuth } = useAuth();
+  const [signInWithGoogle, , signInLoading] = useSignInWithGoogle(auth);
 
   const handleLogin = async () => {
     try {
       const result = await signInWithGoogle();
-
       if (!result) return;
 
       const email = result.user.email;
@@ -23,8 +26,7 @@ const LoginButton = () => {
 
         try {
           await deleteUser(result.user);
-        } catch (deleteError) {
-          console.warn("Auto-delete failed, trying signOut...");
+        } catch {
           await signOut(auth);
         }
 
@@ -32,16 +34,27 @@ const LoginButton = () => {
       }
 
       toast.success(`Welcome, ${result.user.displayName}!`);
-      console.log("User:", result.user);
+      router.push("/dashboard");
     } catch (err) {
       console.error("Login error:", err);
       toast.error("Something went wrong during login.");
     }
   };
 
-  return (
-    <Button variant="ghost" onClick={handleLogin} disabled={loading}>
-      {loading ? "Loading..." : "Login"} <ArrowRight className="ml-2" />
+  if (loading || checkingAuth || signInLoading)
+    return (
+      <Button variant="ghost" onClick={handleLogin}>
+        Login <ArrowRight className="ml-2" />
+      </Button>
+    );
+
+  return user ? (
+    <Button variant="ghost" onClick={() => router.push("/dashboard")}>
+      Dashboard <ArrowRight className="ml-2" />
+    </Button>
+  ) : (
+    <Button variant="ghost" onClick={handleLogin}>
+      Login <ArrowRight className="ml-2" />
     </Button>
   );
 };
